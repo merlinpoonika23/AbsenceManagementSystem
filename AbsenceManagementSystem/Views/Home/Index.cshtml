@@ -1,9 +1,87 @@
-﻿@{
+﻿@* @{ *@
+@*     ViewData["Title"] = "Welcome Page"; *@
+@* } *@
+
+@* <h1>Welcome to Absence Management System</h1> *@
+
+@* <p>Please log in to continue.</p> *@
+
+@* <a class="btn btn-primary" asp-controller="Auth" asp-action="Home">Go to Login</a> *@
+
+@{
     ViewData["Title"] = "Welcome Page";
 }
 
-<h1>Welcome to Absence Management System</h1>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(to right, #74ebd5, #acb6e5);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
 
-<p>Please log in to continue.</p>
+    .welcome-container {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 1.5s ease-in-out;
+    }
 
-<a class="btn btn-primary" asp-controller="Auth" asp-action="Home">Go to Login</a>
+    h1 {
+        font-size: 2.8rem;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+    }
+
+    .btn-custom {
+        padding: 12px 24px;
+        font-size: 1rem;
+        background-color: #ffffff;
+        color: #333;
+        border: none;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-custom:hover {
+        background-color: #ddd;
+        color: #111;
+    }
+
+    @@keyframes fadeIn 
+    {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="welcome-container">
+    <h1 id="headline">Welcome to Absence Management System</h1>
+    <p id="subline">Please log in to continue.</p>
+    <a class="btn-custom" asp-controller="Auth" asp-action="Home">Go to Login</a>
+</div>
+
+<script>
+    const headlines = [
+        "Welcome to Absence Management System",
+        "Track Absences Effortlessly",
+        "Streamline HR Operations"
+    ];
+    let i = 0;
+    setInterval(() => {
+        i = (i + 1) % headlines.length;
+        document.getElementById("headline").innerText = headlines[i];
+    }, 4000);
+</script>
+
