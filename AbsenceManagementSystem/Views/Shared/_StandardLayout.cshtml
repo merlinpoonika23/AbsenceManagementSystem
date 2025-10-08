@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Absence Management System</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f6fa;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+        }
+        .sidebar {
+            width: 220px;
+            background-color: #1e1e2f;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
+        }
+
+            .sidebar a {
+                color: white;
+                text-decoration: none;
+                padding: 15px 25px;
+                display: block;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+            }
+
+                .sidebar a:hover {
+                    background-color: #343450;
+                }
+
+                .sidebar a.active {
+                    background-color: #007bff;
+                }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Absence Management System</h1>
+        <div class="sidebar">
+            <nav>
+                <a href="/Home/Dashboard">📊 Dashboard</a>
+                <a href="/">👥 Employees</a>
+                <a href="/">Leave Request</a>
+                <a href="/">✅ Approvals</a>
+                <a href="/">📝 Absences</a>
+            </nav>
+        </div>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

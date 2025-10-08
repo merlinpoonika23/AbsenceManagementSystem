@@ -26,7 +26,7 @@ namespace AbsenceManagementSystem.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UserLoginRequest request)
         {
-            var user = await _context.Users
+            var user = await _context.User
                 .FirstOrDefaultAsync(u => u.Username == request.Username && u.Password == request.Password);
 
             if (user == null)
